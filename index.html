@@ -72,7 +72,14 @@
             <path d="M20 14.5A7.5 7.5 0 1 1 9.5 4 6.5 6.5 0 0 0 20 14.5z"></path>
           </svg>
         </button>
-        <a class="btn" href="#download" data-i18n="intro.download">下载 OpenGrok</a>
+        <a
+          class="btn"
+          href="https://github.com/kafei520-CN/OpenGrok/releases/latest"
+          data-dl-cta
+          data-i18n="intro.download"
+          target="_blank"
+          rel="noopener noreferrer"
+        >下载 OpenGrok</a>
         <button
           class="menu-btn"
           type="button"
@@ -296,7 +303,14 @@
             </p>
           </div>
           <div class="intro-actions">
-            <a class="btn btn-lg" href="#download" data-i18n="intro.download">下载 OpenGrok</a>
+            <a
+              class="btn btn-lg"
+              href="https://github.com/kafei520-CN/OpenGrok/releases/latest"
+              data-dl-cta
+              data-i18n="intro.download"
+              target="_blank"
+              rel="noopener noreferrer"
+            >下载 OpenGrok</a>
             <a class="btn btn-lg btn-ghost" href="#features" data-i18n="intro.features">看看能做什么</a>
           </div>
         </div>
@@ -405,27 +419,60 @@
           </p>
         </div>
         <div class="dl-grid">
-          <a class="dl-card" href="#cli" data-github-releases>
+          <a
+            class="dl-card"
+            data-dl="win"
+            href="https://github.com/kafei520-CN/OpenGrok/releases/latest"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <strong data-i18n="download.win">Windows</strong>
             <span data-i18n="download.winMeta">x64 安装包 / 绿色版</span>
-            <em>OpenGrok-0.4.0-win-x64-setup.exe</em>
+            <em data-dl-file="win">OpenGrok_x64-setup.exe</em>
           </a>
-          <a class="dl-card" href="#cli" data-github-releases>
+          <a
+            class="dl-card"
+            data-dl="mac"
+            href="https://github.com/kafei520-CN/OpenGrok/releases/latest"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <strong data-i18n="download.mac">macOS</strong>
             <span data-i18n="download.macMeta">Intel / Apple Silicon</span>
-            <em>OpenGrok-0.4.0-mac-*.dmg</em>
+            <em data-dl-file="mac">OpenGrok_aarch64.dmg</em>
           </a>
-          <a class="dl-card" href="#cli" data-github-releases>
+          <a
+            class="dl-card"
+            data-dl="linux"
+            href="https://github.com/kafei520-CN/OpenGrok/releases/latest"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <strong data-i18n="download.linux">Linux</strong>
             <span data-i18n="download.linuxMeta">AppImage · deb · rpm · tar.gz</span>
-            <em>OpenGrok-0.4.0-linux-x64</em>
+            <em data-dl-file="linux">OpenGrok_amd64.AppImage</em>
           </a>
-          <a class="dl-card" href="#cli">
+          <a
+            class="dl-card"
+            data-github-href
+            href="https://github.com/kafei520-CN/OpenGrok"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <strong data-i18n="download.source">从源码运行</strong>
             <span data-i18n="download.sourceMeta">Node.js 20+ · Electron</span>
-            <em>npm run dev / npm run pack</em>
+            <em data-i18n="download.sourceLink">打开仓库</em>
           </a>
         </div>
+        <p class="dl-more">
+          <a
+            data-github-releases
+            href="https://github.com/kafei520-CN/OpenGrok/releases/latest"
+            target="_blank"
+            rel="noopener noreferrer"
+            data-i18n="download.releases"
+          >GitHub 发行页 · 全部安装包</a>
+        </p>
 
         <div class="cli-box" id="cli">
           <h3 data-i18n="download.cliTitle">本机需要 Grok CLI</h3>
@@ -484,6 +531,13 @@
     <footer class="site-footer">
       <span>OpenGrok · <span data-i18n="footer.license">Apache-2.0</span> · <span data-i18n="footer.author">mckafei_CN</span></span>
       <span data-i18n="footer.unofficial">非 xAI 官方产品。Grok、SuperGrok 是 xAI 的商标。</span>
+      <a
+        data-github-href
+        href="https://github.com/kafei520-CN/OpenGrok"
+        target="_blank"
+        rel="noopener noreferrer"
+        data-i18n="footer.github"
+      >GitHub</a>
       <a href="#home" data-i18n="footer.top">回到顶部</a>
     </footer>
 

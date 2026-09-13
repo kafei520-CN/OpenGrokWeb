@@ -941,6 +941,22 @@ button.og-card {
   font-size: 12px;
   font-weight: 620;
   color: var(--fg);
+  overflow-wrap: anywhere;
+}
+
+.dl-more {
+  margin: 14px 2px 0;
+  font-size: 13px;
+  font-weight: 550;
+}
+
+.dl-more a {
+  color: var(--fg);
+  border-bottom: 1px solid var(--line);
+}
+
+.dl-more a:hover {
+  border-bottom-color: var(--fg);
 }
 
 .cli-box {

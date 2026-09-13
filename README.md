@@ -27,13 +27,4 @@ assets/         logo、SuperGrok 标志、favicon
 
 静态站点，可直接放到 GitHub Pages 或任意静态托管。
 
-若已有软件仓库的 Releases，在 `js/site.js` 里填写：
-
-```js
-const SITE = {
-  version: '0.4.0',
-  github: 'https://github.com/USER/OpenGrok',
-};
-```
-
-下载卡片会指向 `{github}/releases/latest`。
+下载按钮会请求 GitHub API `kafei520-CN/OpenGrok` 的 latest release，把 Windows / macOS / Linux 卡片和顶栏「下载 OpenGrok」指到对应安装包。失败时回退到 [Releases](https://github.com/kafei520-CN/OpenGrok/releases/latest)。
