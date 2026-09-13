@@ -1,0 +1,39 @@
+# OpenGrok 官网
+
+OpenGrok 桌面工作台的产品站。视觉对齐软件默认浅色工作台：白底、`#1c1c1c` 正文、圆角卡片、SuperGrok 标志。支持中 / EN 与浅色 / 深色。
+
+Not an official xAI product.
+
+## 本地预览
+
+```powershell
+cd C:\Users\mckafei\Desktop\OpenGrokWeb
+python -m http.server 4173
+```
+
+打开 http://127.0.0.1:4173
+
+## 结构
+
+```
+index.html      落地页
+css/site.css    与软件同一套 token
+js/i18n.js      中英文本
+js/site.js      语言、主题、复制、卡片填入输入框
+assets/         logo、SuperGrok 标志、favicon
+```
+
+## 发布
+
+静态站点，可直接放到 GitHub Pages 或任意静态托管。
+
+若已有软件仓库的 Releases，在 `js/site.js` 里填写：
+
+```js
+const SITE = {
+  version: '0.4.0',
+  github: 'https://github.com/USER/OpenGrok',
+};
+```
+
+下载卡片会指向 `{github}/releases/latest`。
