@@ -108,6 +108,8 @@ const OG_I18N = {
       copied: '已复制',
       pack: '本地打包',
       packHint: '在 OpenGrok 仓库根目录执行，生成当前系统的安装包。',
+      releases: 'GitHub 发行页 · 全部安装包',
+      sourceLink: '打开仓库',
     },
     faq: {
       kicker: '说明',
@@ -127,6 +129,7 @@ const OG_I18N = {
       unofficial: '非 xAI 官方产品。Grok、SuperGrok 是 xAI 的商标。',
       license: 'Apache-2.0',
       author: 'mckafei_CN',
+      github: 'GitHub',
       top: '回到顶部',
     },
   },
@@ -239,6 +242,8 @@ const OG_I18N = {
       copied: 'Copied',
       pack: 'Pack locally',
       packHint: 'Run this at the OpenGrok repo root to build an installer for this OS.',
+      releases: 'GitHub Releases · all installers',
+      sourceLink: 'Open repository',
     },
     faq: {
       kicker: 'Notes',
@@ -257,6 +262,7 @@ const OG_I18N = {
     footer: {
       unofficial: 'Not an official xAI product. Grok and SuperGrok are trademarks of xAI.',
       license: 'Apache-2.0',
+      github: 'GitHub',
       author: 'mckafei_CN',
       top: 'Back to top',
     },

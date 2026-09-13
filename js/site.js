@@ -1,7 +1,11 @@
 const SITE = {
   version: '0.4.0',
-  github: '',
+  github: 'https://github.com/kafei520-CN/OpenGrok',
+  repo: 'kafei520-CN/OpenGrok',
 };
+
+const RELEASE_CACHE_KEY = 'og-release';
+const RELEASE_CACHE_MS = 15 * 60 * 1000;
 
 const LANG_KEY = 'og-lang';
 const THEME_KEY = 'og-theme';
