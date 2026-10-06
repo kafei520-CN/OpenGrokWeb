@@ -64,7 +64,7 @@ const OG_I18N = {
     },
     home: {
       kicker: '三个入口',
-      title: '三个窗口，一个Grok',
+      title: '三个窗口，一个 Grok',
       lead: '桌面一个窗口，JetBrains 和 VS Code 各一个侧栏。都去连你已经装好的 grok。',
       jbName: 'OpenGrok Plugins For JetBrains',
       jbBody: 'JetBrains 里的侧栏。IntelliJ、WebStorm、PyCharm 都能装。能改当前工程，也能跑命令。',
