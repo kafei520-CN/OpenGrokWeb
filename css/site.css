@@ -587,8 +587,9 @@ a {
 }
 
 .og-home-hint {
+  width: min(440px, 100%);
+  min-width: 0;
   margin: 0 0 4px;
-  max-width: min(440px, 100%);
   padding: 0 16px;
   text-align: center;
   color: var(--muted);
@@ -755,6 +756,63 @@ button.og-card {
 
 .send-btn:hover {
   background: color-mix(in srgb, var(--fg) 88%, var(--bg));
+}
+
+.hero-copy {
+  max-width: 720px;
+  margin: 8px auto 0;
+  text-align: center;
+}
+
+.hero-copy h1 {
+  margin: 0;
+  font-size: clamp(28px, 4vw, 40px);
+  font-weight: 600;
+  letter-spacing: -0.045em;
+  line-height: 1.15;
+}
+
+.hero-copy .lead {
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.product-row {
+  max-width: var(--max);
+  margin: 4px auto 28px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.product-card {
+  padding: 20px;
+  border-radius: var(--r-lg);
+  border: 1px solid var(--line);
+  background: var(--bg);
+  box-shadow: var(--shadow-sm);
+}
+
+.product-card h2 {
+  margin: 0 0 8px;
+  font-size: 16px;
+  font-weight: 620;
+  letter-spacing: -0.03em;
+}
+
+.product-card p {
+  margin: 0 0 14px;
+  color: var(--muted);
+  font-size: 13.5px;
+  line-height: 1.55;
+}
+
+.product-card a {
+  font-size: 13px;
+  font-weight: 550;
+  overflow-wrap: anywhere;
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
 
 .intro {
@@ -1203,5 +1261,11 @@ html[data-theme='dark'] .icon-moon {
 
   .intro {
     padding: 28px 4px 8px;
+  }
+
+  .product-row {
+    grid-template-columns: 1fr;
+    margin-right: 4px;
+    margin-left: 4px;
   }
 }

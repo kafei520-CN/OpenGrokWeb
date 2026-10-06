@@ -16,11 +16,11 @@ $args = @(
 $proc = Start-Process -FilePath $edge -ArgumentList $args -RedirectStandardOutput $domFile -PassThru -Wait -NoNewWindow
 $html = Get-Content -Raw $domFile
 $checks = @(
-  'What are we building?',
-  'New session',
-  'Explore and understand the code',
-  'Download OpenGrok',
-  'A desktop window for local grok'
+  'Three places, the same grok',
+  'OpenGrok Plugins',
+  'plugins.jetbrains.com/plugin/33923-opengrok-plugins',
+  'marketplace.visualstudio.com/items?itemName=kafei520cn.grok-for-vs-code',
+  'Download OpenGrok'
 )
 foreach ($text in $checks) {
   if ($html.Contains($text)) {
