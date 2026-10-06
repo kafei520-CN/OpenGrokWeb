@@ -1,15 +1,17 @@
 .swap-stage {
   position: relative;
-  height: 620px;
-  max-width: var(--max);
-  margin: 18px auto 0;
+  height: 680px;
+  max-width: none;
+  width: 100%;
+  margin: 4px auto 0;
   overflow: hidden;
 }
 
 .card-swap-container {
   position: absolute;
+  z-index: 1;
   left: 50%;
-  top: 54%;
+  top: 64%;
   transform: translate(-50%, -48%);
   transform-origin: center center;
   perspective: 900px;
@@ -43,7 +45,7 @@
 
 @media (max-width: 768px) {
   .swap-stage {
-    height: 440px;
+    height: 520px;
   }
 
   .card-swap-container {
@@ -53,7 +55,7 @@
 
 @media (max-width: 480px) {
   .swap-stage {
-    height: 340px;
+    height: 420px;
   }
 
   .card-swap-container {

@@ -17,6 +17,7 @@
     <link rel="apple-touch-icon" href="assets/icon.png">
     <link rel="stylesheet" href="css/site.css">
     <link rel="stylesheet" href="css/card-swap.css">
+    <link rel="stylesheet" href="css/gradual-blur.css">
     <script>
       (function () {
         try {
@@ -113,15 +114,8 @@
 
     <main>
       <section class="hero" id="home">
-        <div class="hero-copy">
-          <p class="kicker" data-i18n="home.kicker">三个入口</p>
-          <h1 data-i18n="home.title">三个地方，同一个 Grok</h1>
-          <p class="lead" data-i18n="home.lead">
-            桌面一个窗口，JetBrains 和 VS Code 各一个侧栏。都去连你已经装好的 grok。
-          </p>
-        </div>
-
         <div class="swap-stage">
+          <h1 class="stage-title" data-i18n="home.title">三个窗口，一个Grok</h1>
           <div
             class="card-swap-container"
             data-card-swap
@@ -420,9 +414,24 @@
       <a href="#home" data-i18n="footer.top">回到顶部</a>
     </footer>
 
+    <div
+      class="gradual-blur"
+      data-gradual-blur
+      data-target="page"
+      data-position="bottom"
+      data-height="7rem"
+      data-strength="2"
+      data-div-count="5"
+      data-curve="bezier"
+      data-exponential="true"
+      data-opacity="1"
+    ></div>
+
     <script src="js/i18n.js"></script>
     <script src="js/site.js"></script>
     <script src="js/vendor/gsap.min.js"></script>
     <script src="js/card-swap.js"></script>
+    <script src="js/particle-title.js"></script>
+    <script src="js/gradual-blur.js"></script>
   </body>
 </html>
