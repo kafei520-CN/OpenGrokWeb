@@ -24,6 +24,7 @@
   const sample = document.createElement('canvas');
   const sampleCtx = sample.getContext('2d', { willReadFrequently: true });
   const font = 'SimHei, "Heiti SC", "Microsoft YaHei", "PingFang SC", sans-serif';
+  const mono = 'ui-monospace, "Cascadia Code", "Cascadia Mono", Consolas, monospace';
 
   let particles = [];
   let width = 0;
@@ -59,15 +60,50 @@
       return;
     }
 
+    const runs = [];
+    const pattern = /Grok/g;
+    let last = 0;
+    let match = pattern.exec(text);
+    while (match) {
+      if (match.index > last) {
+        runs.push({ text: text.slice(last, match.index), mono: false });
+      }
+      runs.push({ text: match[0], mono: true });
+      last = match.index + match[0].length;
+      match = pattern.exec(text);
+    }
+    if (last < text.length) {
+      runs.push({ text: text.slice(last), mono: false });
+    }
+    if (!runs.length) {
+      runs.push({ text: text, mono: false });
+    }
+
+    function face(size, isMono) {
+      return (isMono ? '700 ' : '900 ') + size + 'px ' + (isMono ? mono : font);
+    }
+
+    function measureRuns(size) {
+      let total = 0;
+      let up = 0;
+      let down = 0;
+      runs.forEach((run) => {
+        probe.font = face(size, run.mono);
+        const metrics = probe.measureText(run.text);
+        total += metrics.width;
+        up = Math.max(up, metrics.actualBoundingBoxAscent || size * 0.82);
+        down = Math.max(down, metrics.actualBoundingBoxDescent || size * 0.18);
+      });
+      return { total: total, up: up, down: down };
+    }
+
     const probe = sampleCtx;
-    probe.font = '900 100px ' + font;
-    const measured = Math.max(probe.measureText(text).width, 1);
+    const measured = Math.max(measureRuns(100).total, 1);
     const fontSize = Math.max(22, Math.min(220, 100 * ((width * 0.96) / measured)));
-    probe.font = '900 ' + fontSize + 'px ' + font;
-    const metrics = probe.measureText(text);
-    textWidth = metrics.width;
-    const ascent = metrics.actualBoundingBoxAscent || fontSize * 0.82;
-    const descent = metrics.actualBoundingBoxDescent || fontSize * 0.18;
+    const fitted = measureRuns(fontSize);
+    textWidth = fitted.total;
+    const ascent = fitted.up;
+    const descent = fitted.down;
     textHeight = ascent + descent;
     textTop = 6;
     textLeft = (width - textWidth) / 2;
@@ -77,9 +113,13 @@
     sampleCtx.setTransform(1, 0, 0, 1, 0, 0);
     sampleCtx.clearRect(0, 0, sample.width, sample.height);
     sampleCtx.fillStyle = '#000';
-    sampleCtx.font = '900 ' + fontSize + 'px ' + font;
     sampleCtx.textBaseline = 'alphabetic';
-    sampleCtx.fillText(text, 4, 4 + ascent);
+    let pen = 4;
+    runs.forEach((run) => {
+      sampleCtx.font = face(fontSize, run.mono);
+      sampleCtx.fillText(run.text, pen, 4 + ascent);
+      pen += sampleCtx.measureText(run.text).width;
+    });
 
     const step = Math.max(4, Math.round(fontSize / 26));
     const pixels = sampleCtx.getImageData(0, 0, sample.width, sample.height).data;
